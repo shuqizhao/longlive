@@ -39,7 +39,7 @@ axiosInstance.interceptors.response.use(
       router.push('/login')
     } else if (response.status == "200" && response.config.url.indexOf('/auth/login') > 0) {
       Cookies.set('access_token', response.data.access_token)
-      router.push('/')
+      router.push('/home')
     }
     return response;
   },
