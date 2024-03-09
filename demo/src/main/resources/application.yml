@@ -1,0 +1,13 @@
+server:
+  port: 8000
+spring:
+  profiles:
+    active: local
+  datasource:
+    url: jdbc:mysql://47.103.96.122:33061/heightManage-test2?useOldAliasMetadataBehavior=true&autoReconnect=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: bdx2024_xdb
+    driver-class-name: com.mysql.cj.jdbc.Driver
+mybatis:
+  type-aliases-package: com.example.mapper
+  mapper-locations: classpath:mappers/*.xml

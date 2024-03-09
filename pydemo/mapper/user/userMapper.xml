@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mapper>
+    <select id="select_all_users">
+       select * from users where user_name like '%' :name '%'  limit :page,:perPage
+    </select>
+    <select id="select_all_users_count">
+       select count(1) usersCount from users where user_name like '%' :name '%'
+    </select>
+</mapper>
