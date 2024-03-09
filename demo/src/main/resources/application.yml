@@ -4,9 +4,9 @@ spring:
   profiles:
     active: local
   datasource:
-    url: jdbc:mysql://47.103.96.122:33061/heightManage-test2?useOldAliasMetadataBehavior=true&autoReconnect=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://127.0.0.1:3306/databasename?useOldAliasMetadataBehavior=true&autoReconnect=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai
     username: root
-    password: bdx2024_xdb
+    password: 123
     driver-class-name: com.mysql.cj.jdbc.Driver
 mybatis:
   type-aliases-package: com.example.mapper

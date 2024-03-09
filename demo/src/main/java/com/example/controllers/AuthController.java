@@ -13,7 +13,7 @@ public class AuthController {
     @PostMapping("/login")  
     public ResponseEntity<?> login(@RequestParam String username, @RequestParam String password) {  
         // 模拟验证用户名和密码  
-        if ("user".equals(username) && "password".equals(password)) {  
+        if ("test".equals(username) && "test".equals(password)) {  
             String token = JwtUtil.generateToken(username);  
             return ResponseEntity.ok(token);  
         }  
