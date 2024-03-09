@@ -16,7 +16,7 @@
             "name": "Current File",
             "request": "launch",
             "mainClass": "${file}",
-            "args": "--spring.profiles.active=local"
+            "args": "--spring.profiles.active=default"
         }
     ]
 }

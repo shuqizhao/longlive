@@ -11,11 +11,13 @@ public class WebConfig implements WebMvcConfigurer {
     @Autowired  
     private JwtInterceptor jwtInterceptor;  
   
+    @SuppressWarnings("null")
     @Override  
     public void addInterceptors(InterceptorRegistry registry) {  
         // 添加拦截器并设置拦截规则  
         registry.addInterceptor(jwtInterceptor)  
                 .addPathPatterns("/**") // 拦截所有请求  
-                .excludePathPatterns("/api/login"); // 排除登录接口  
+                .excludePathPatterns("/error")
+                .excludePathPatterns("/auth/login"); // 排除登录接口  
     }  
 }

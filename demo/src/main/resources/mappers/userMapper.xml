@@ -4,24 +4,12 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
 <mapper namespace="com.example.mapper.UserMapper">  
   
-    <select id="selectUsersByCondition" resultType="com.example.dto.user.User" parameterType="com.example.dto.user.User">  
-        SELECT * FROM customer where name like concat('%',#{name},'%')
+    <select id="selectUsersByCondition" resultType="com.example.dto.user.UserDto" parameterType="com.example.dto.user.UserListSearchDto">  
+        SELECT * FROM users where user_name like concat('%',#{user_name},'%') limit #{page},#{perPage}
     </select>  
   
-    <select id="selectUserById" resultType="com.example.dto.user.User">  
-        SELECT * FROM user WHERE id = #{id}  
+    <select id="selectUsersByConditionCount" resultType="int" parameterType="com.example.dto.user.UserListSearchDto">  
+        SELECT count(1) count FROM users where user_name like concat('%',#{user_name},'%')
     </select>  
-  
-    <insert id="insertUser" parameterType="com.example.dto.user.User">  
-        INSERT INTO user (name, email) VALUES (#{name}, #{email})  
-    </insert>  
-  
-    <update id="updateUser" parameterType="com.example.dto.user.User">  
-        UPDATE user SET name = #{name}, email = #{email} WHERE id = #{id}  
-    </update>  
-  
-    <delete id="deleteUser" parameterType="int">  
-        DELETE FROM user WHERE id = #{id}  
-    </delete>  
   
 </mapper>
