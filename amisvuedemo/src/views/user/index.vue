@@ -83,10 +83,10 @@ export default {
                         // 在这里添加 Authorization 头部  
                         Authorization: `Bearer ${Cookies.get('access_token')}`
                     },
-                    requestAdaptor: function (api, context) {
-                        axiosInstance(api);
-                        return api;
-                    }
+                    // requestAdaptor: function (api, context) {
+                    //     axiosInstance(api);
+                    //     return api;
+                    // }
                 },
                 "perPage": 10,
                 "keepItemSelectionOnPageChange": true,
