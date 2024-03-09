@@ -7,7 +7,6 @@
 <script>
 import { ref } from 'vue';
 import AMISRenderer from "@/components/AMISRenderer.vue";
-import axiosInstance from "@/api/axiosUtil"
 
 export default {
   components: {
@@ -26,13 +25,7 @@ export default {
           type: 'form',
           title: '有一个管理系统',
           "mode": "horizontal",
-          api: {
-            method: "post",
-            url: import.meta.env.VITE_BASE_Url+"/auth/login",
-            requestAdaptor: function (api, context) {
-              return axiosInstance(api);
-            }
-          },
+          api: import.meta.env.VITE_BASE_Url + "/auth/login",
           style: {
             "text-align": "center"
           },

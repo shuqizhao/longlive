@@ -7,7 +7,6 @@
 <script>
 import { ref } from 'vue';
 import AMISRenderer from "@/components/AMISRenderer.vue";
-import axiosInstance from "@/api/axiosUtil"
 import Cookies from 'js-cookie';
 
 export default {
@@ -15,30 +14,7 @@ export default {
         "amis-renderer": AMISRenderer,
     },
     setup() {
-
-        // 在 AMIS 配置中使用自定义的 requestAdaptor  
-        const amisConfig = {
-            requestAdaptor: (config) => {
-                // 在这里你可以修改 config 对象来定制请求  
-                config.headers = {
-                    ...config.headers,
-                    // 添加 Authorization 头部到每个请求中  
-                    Authorization: `Bearer ${Cookies.get('access_token')}`, // 假设 token 存储在 localStorage 中  
-                };
-
-                // 使用 axios 发送请求并返回 Promise  
-                return axiosInstance(config)
-                    .then((response) => {
-                        // 你可以在这里处理响应数据，比如转换格式等  
-                        return { data: response.data }; // 返回 AMIS 期望的格式  
-                    })
-                    .catch((error) => {
-                        // 处理请求错误，你可以在这里抛出错误或返回一个拒绝的 Promise  
-                        throw new Error(error.message);
-                    });
-            },
-        };
-
+ 
         // 使用这个配置来渲染你的 AMIS 组件
         const userSchema = ref({
             "title": "用户管理",
@@ -74,20 +50,8 @@ export default {
             "body": {
                 "type": "crud",
                 "syncLocation": false,
-                "draggable": true,
-                // "api": import.meta.env.VITE_BASE_Url + "/user/list",
-                "api": {
-                    "method": "get",
-                    "url": import.meta.env.VITE_BASE_Url + "/user/list",
-                    headers: {
-                        // 在这里添加 Authorization 头部  
-                        Authorization: `Bearer ${Cookies.get('access_token')}`
-                    },
-                    requestAdaptor: function (api, context) {
-                        axiosInstance(api);
-                        return api;
-                    }
-                },
+                "draggable": true,  
+                "api": import.meta.env.VITE_BASE_Url + "/user/list",
                 "perPage": 10,
                 "keepItemSelectionOnPageChange": true,
                 "maxKeepItemSelectionLength": 21,
