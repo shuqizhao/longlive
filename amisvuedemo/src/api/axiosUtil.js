@@ -41,16 +41,22 @@ axiosInstance.interceptors.response.use(
       Cookies.set('access_token', response.data.access_token)
       router.push('/')
     }
-    return response.data;
+    return response;
   },
   error => {
-    if (error.response.status == '401' && error.response.config.url.indexOf('/auth/login') > 0) {
+    if(error.response.status&&error.response&&error.response.data){
       error.message = error.response.data.msg
-    } else {
-      if (error.response.status == '401') {
-        router.push('/login')
-      }
     }
+    if (error.response.status == '401') {
+      router.push('/login')
+    }
+    // if (error.response.status == '401' && error.response.config.url.indexOf('/auth/login') > 0) {
+    //   error.message = error.response.data.msg
+    // } else {
+    //   if (error.response.status == '401') {
+    //     router.push('/login')
+    //   }
+    // }
     // 对响应错误做处理  
     return Promise.reject(error);
   }

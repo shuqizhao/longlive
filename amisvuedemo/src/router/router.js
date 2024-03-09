@@ -54,25 +54,36 @@ router.beforeEach((to, from, next) => {
     next()
   }
 })
+const originalFetch = window.fetch;
+ 
+window.fetch = function() {
+  debugger
+    console.log('Intercepted fetch call:', arguments);
+    return originalFetch.apply(this, arguments);
+};
 
-// // 拦截所有的fetch请求
-// window.addEventListener('fetch', event => {
-//   const { request } = event;
+window.onerror = function(message, source, lineno, colno, error) {
+  debugger
+  console.log('An error occurred:', message);
+  console.log('Source:', source);
+  console.log('Line:', lineno);
+  console.log('Column:', colno);
+  console.log('Error object:', error);
 
-//   // 拦截并处理响应
-//   event.respondWith(
-//     fetch(request).then(response => {
-//       debugger;
-//       // 这里可以对响应结果做全局处理
-//       // 例如，检查状态码，添加通用的头部信息等
-//       // 然后返回修改后的响应或原始响应
-//       return response;
-//     }).catch(error => {
-//       // 这里可以处理请求失败的情况
-//       // 返回一个新的Response对象或抛出错误
-//       console.error('Fetch error:', error);
-//       throw error;
-//     })
-//   );
-// });
+  // 可以在这里添加异常信息上报到服务器的代码
+  // 例如使用 fetch 发送 error 信息到服务器
+  // fetch('/report-error', {
+  //     method: 'POST',
+  //     headers: {
+  //         'Content-Type': 'application/json'
+  //     },
+  //     body: JSON.stringify({
+  //         message: message,
+  //         source: source,
+  //         lineno: lineno,
+  //         colno: colno,
+  //         error: error
+  //     })
+  // });
+};
 export default router

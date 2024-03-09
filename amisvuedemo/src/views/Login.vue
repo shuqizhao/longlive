@@ -30,8 +30,7 @@ export default {
             method: "post",
             url: import.meta.env.VITE_BASE_Url+"/auth/login",
             requestAdaptor: function (api, context) {
-              axiosInstance(api)
-              return api;
+              return axiosInstance(api);
             }
           },
           style: {

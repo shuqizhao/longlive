@@ -8,11 +8,11 @@ import javax.servlet.http.HttpServletResponse;
 @Component  
 public class JwtInterceptor implements HandlerInterceptor {  
   
-    @SuppressWarnings("null")
     @Override  
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {  
         // 从请求头中获取Authorization字段  
-       
+       String url = request.getRequestURI();
+       System.out.println(url);
         String authHeader = request.getHeader("Authorization");  
   
         // 验证Authorization字段是否为空  

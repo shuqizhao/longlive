@@ -21,6 +21,6 @@ public class MyBlogic {
 
     
     public List<Integer> getUsersByConditionCount(UserListSearchDto userListSearchDto) {  
-        return myBatisHelper.selectList("getUsersByConditionCount", userListSearchDto);  
+        return myBatisHelper.selectList("selectUsersByConditionCount", userListSearchDto);  
     }
 }
