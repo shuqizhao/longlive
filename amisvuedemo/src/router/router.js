@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Login from '@/views/Login.vue'
+import Login from '@/views/login/new.vue'
 import Layout from '@/views/Layout.vue'
 
 import Cookies from 'js-cookie'
@@ -7,7 +7,6 @@ import Cookies from 'js-cookie'
 const routes = [
   {
     path: '/',
-    // name: 'Layout',
     component: Layout,
     redirect: '/home',
     children: [
@@ -54,36 +53,5 @@ router.beforeEach((to, from, next) => {
     next()
   }
 })
-const originalFetch = window.fetch;
- 
-window.fetch = function() {
-  debugger
-    console.log('Intercepted fetch call:', arguments);
-    return originalFetch.apply(this, arguments);
-};
 
-window.onerror = function(message, source, lineno, colno, error) {
-  debugger
-  console.log('An error occurred:', message);
-  console.log('Source:', source);
-  console.log('Line:', lineno);
-  console.log('Column:', colno);
-  console.log('Error object:', error);
-
-  // 可以在这里添加异常信息上报到服务器的代码
-  // 例如使用 fetch 发送 error 信息到服务器
-  // fetch('/report-error', {
-  //     method: 'POST',
-  //     headers: {
-  //         'Content-Type': 'application/json'
-  //     },
-  //     body: JSON.stringify({
-  //         message: message,
-  //         source: source,
-  //         lineno: lineno,
-  //         colno: colno,
-  //         error: error
-  //     })
-  // });
-};
 export default router
