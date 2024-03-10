@@ -7,12 +7,11 @@
             <form class="login" @submit.prevent="handleSubmit">
                 <h2>有一个系统</h2>
                 <div class="ipt-box">
-                    <input type="text" placeholder="账号" id="username" v-model="username" />
+                    <input type="text" placeholder="账号" id="username" v-model="username" required autofocus />
                 </div>
                 <div class="ipt-box">
-                    <input type="password" placeholder="密码" id="password" v-model="password" />
+                    <input type="password" placeholder="密码" id="password" v-model="password" required />
                 </div>
-                <div v-if="error" class="error">{{ error }}</div>
                 <div class="ipt-box">
                     <input type="submit" value="登录" />
                 </div>
@@ -26,24 +25,29 @@
 </template>
 
 <script>
+import { ElMessage, ElLoading } from 'element-plus'
 import axiosInstance from "@/api/axiosUtil";
 
 export default {
     data() {
         return {
             username: '',
-            password: '',
-            error: ''
+            password: ''
         };
     },
     methods: {
         handleSubmit() {
             // 验证用户名和密码
             if (!this.username || !this.password) {
-                this.error = '用户名或密码为必填项！';
+                ElMessage.error("用户名或密码为必填项！");
                 return;
             }
 
+            const loading = ElLoading.service({
+                lock: true,
+                text: '正在登录...',
+                background: 'rgba(0, 0, 0, 0.7)',
+            })
             // 发送POST请求
             axiosInstance.post('/auth/login', {
                 username: this.username,
@@ -52,12 +56,13 @@ export default {
                 .then(response => {
                     // 处理登录成功的情况
                     // 例如：保存token、跳转到其他页面等
-                    this.error = "";
+                    loading.close()
                     console.log('Login successful!', response.data);
                 })
                 .catch(error1 => {
                     // 处理登录失败的情况
-                    this.error = error1.response.data.msg;
+                    loading.close()
+                    ElMessage.error(error1.response.data.msg);
                     console.error('Login failed:', error1);
                 });
         }
@@ -70,10 +75,8 @@ export default {
     padding: 0;
     box-sizing: border-box;
 }
-
 </style>
 <style scoped>
-
 .body {
     min-height: 100vh;
     background-color: #111;
