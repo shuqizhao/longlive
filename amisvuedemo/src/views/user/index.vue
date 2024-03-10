@@ -7,7 +7,6 @@
 <script>
 import { ref } from 'vue';
 import AMISRenderer from "@/components/AMISRenderer.vue";
-import Cookies from 'js-cookie';
 
 export default {
     components: {
