@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Login from '@/views/login/new.vue'
+import Login from '@/views/login/circle.vue'
 import Layout from '@/views/Layout.vue'
 
 import Cookies from 'js-cookie'

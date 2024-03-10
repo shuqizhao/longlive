@@ -1,28 +1,68 @@
 <template>
-    <div class="ring">
-        <i style="--clr:#00ff0a;"></i>
-        <i style="--clr:#ff0057;"></i>
-        <i style="--clr:#fffd44;"></i>
-        <div class="login">
-            <h2>有一个系统</h2>
-            <div class="ipt-box">
-                <input type="text" placeholder="账号">
-            </div>
-            <div class="ipt-box">
-                <input type="password" placeholder="密码">
-            </div>
-            <div class="ipt-box">
-                <input type="submit" value="登录">
-            </div>
-            <div class="links">
-                <a href="#">忘记密码</a>
-                <a href="#">注册</a>
-            </div>
+    <div class="body">
+        <div class="ring">
+            <i style="--clr:#00ff0a;"></i>
+            <i style="--clr:#ff0057;"></i>
+            <i style="--clr:#fffd44;"></i>
+            <form class="login" @submit.prevent="handleSubmit">
+                <h2>有一个系统</h2>
+                <div class="ipt-box">
+                    <input type="text" placeholder="账号" id="username" v-model="username" />
+                </div>
+                <div class="ipt-box">
+                    <input type="password" placeholder="密码" id="password" v-model="password" />
+                </div>
+                <div v-if="error" class="error">{{ error }}</div>
+                <div class="ipt-box">
+                    <input type="submit" value="登录" />
+                </div>
+                <div class="links">
+                    <a href="#">忘记密码</a>
+                    <a href="#">注册</a>
+                </div>
+            </form>
         </div>
     </div>
 </template>
 
 <script>
+import axiosInstance from "@/api/axiosUtil";
+
+export default {
+    data() {
+        return {
+            username: '',
+            password: '',
+            error: ''
+        };
+    },
+    methods: {
+        handleSubmit() {
+            // 验证用户名和密码
+            if (!this.username || !this.password) {
+                this.error = '用户名或密码为必填项！';
+                return;
+            }
+
+            // 发送POST请求
+            axiosInstance.post('/auth/login', {
+                username: this.username,
+                password: this.password
+            })
+                .then(response => {
+                    // 处理登录成功的情况
+                    // 例如：保存token、跳转到其他页面等
+                    this.error = "";
+                    console.log('Login successful!', response.data);
+                })
+                .catch(error1 => {
+                    // 处理登录失败的情况
+                    this.error = error1.response.data.msg;
+                    console.error('Login failed:', error1);
+                });
+        }
+    }
+};
 </script>
 
 <style>
@@ -32,7 +72,7 @@
     box-sizing: border-box;
 }
 
-body {
+.body {
     min-height: 100vh;
     background-color: #111;
     display: flex;
@@ -137,6 +177,11 @@ body {
 .login .links a {
     color: #fff;
     text-decoration: none;
+}
+
+.error {
+    color: red;
+    /* ... */
 }
 
 @keyframes animate {
