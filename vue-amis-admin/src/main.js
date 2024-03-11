@@ -9,8 +9,6 @@ import './styles/index.scss'
 // 引入字体图标样式
 import '@/assets/iconfont/iconfont.css'
 
-import { QuillEditor } from '@vueup/vue-quill'
-import '@vueup/vue-quill/dist/vue-quill.snow.css';
 
 import App from './App.vue'
 import router from './router'
@@ -27,7 +25,6 @@ app.use(ElementPlus, {
   locale: zhCn
 })
 app.use(Directives)
-app.component('QuillEditor', QuillEditor)
 app.use(router).use(store).mount('#app')
 
 app.provide('$DateFormat', DateFormat)
