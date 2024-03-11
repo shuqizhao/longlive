@@ -30,7 +30,7 @@ export default {
                         "body": {
                             "type": "form",
                             "name": "sample-edit-form",
-                            "api": "post:" + import.meta.env.VITE_BASE_Url + "/user/save",
+                            "api": "post:" + import.meta.env.VITE_BASE_API + "/user/save",
                             "body": [
                                 {
                                     "type": "input-text",
@@ -50,19 +50,7 @@ export default {
                 "type": "crud",
                 "syncLocation": false,
                 "draggable": true,
-                // "api": import.meta.env.VITE_BASE_Url + "/user/list",
-                "api": {
-                    "method": "get",
-                    "url": import.meta.env.VITE_BASE_Url + "/user/list",
-                    headers: {
-                        // 在这里添加 Authorization 头部  
-                        Authorization: `Bearer ${Cookies.get('access_token')}`
-                    },
-                    requestAdaptor: function (api, context) {
-                        axiosInstance(api);
-                        return api;
-                    }
-                },
+                "api": import.meta.env.VITE_BASE_API + "/user/list",
                 "perPage": 10,
                 "keepItemSelectionOnPageChange": true,
                 "maxKeepItemSelectionLength": 21,
@@ -73,12 +61,12 @@ export default {
                     {
                         "label": "批量删除",
                         "actionType": "ajax",
-                        "api": "delete:" + import.meta.env.VITE_BASE_Url + "/user/del" + "${ids|raw}",
+                        "api": "delete:" + import.meta.env.VITE_BASE_API + "/user/del" + "${ids|raw}",
                         "confirmText": "确定要批量删除?"
                     }
                 ],
-                "quickSaveApi": import.meta.env.VITE_BASE_Url + "/user/save",
-                "quickSaveItemApi": import.meta.env.VITE_BASE_Url + "/user/save/$id",
+                "quickSaveApi": import.meta.env.VITE_BASE_API + "/user/save",
+                "quickSaveItemApi": import.meta.env.VITE_BASE_API + "/user/save/$id",
                 "filterTogglable": true,
                 "headerToolbar": [
                     "bulkActions",
@@ -185,7 +173,7 @@ export default {
                                     "body": {
                                         "type": "form",
                                         "name": "sample-edit-form",
-                                        "api": import.meta.env.VITE_BASE_Url + "/user/save/$id",
+                                        "api": import.meta.env.VITE_BASE_API + "/user/save/$id",
                                         "body": [
                                             {
                                                 "type": "input-text",
@@ -206,7 +194,7 @@ export default {
                                 "actionType": "ajax",
                                 "tooltip": "删除",
                                 "confirmText": "您确认要删除?",
-                                "api": "delete:" + import.meta.env.VITE_BASE_Url + "/user/del" + "/$id"
+                                "api": "delete:" + import.meta.env.VITE_BASE_API + "/user/del" + "/$id"
                             }
                         ],
                         "toggled": true
