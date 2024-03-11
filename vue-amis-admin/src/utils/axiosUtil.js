@@ -39,9 +39,20 @@ axiosInstance.interceptors.response.use(
       router.push('/login')
     } else if (response.status == "200" && response.config.url.indexOf('/auth/login') != -1) {
       Cookies.set('access_token', response.data.access_token)
+      var res={};
+      res.jwt_user_token = response.data.access_token;
+      res.jwt_user_name='一个好人';
+      res.jwt_user_role='admin';
+      res.jwt_user_tenant_name='一个好企业';
+      Cookies.set('token', res.jwt_user_toke)
+      Cookies.set('roles', res.jwt_user_role)
+      Cookies.set('name', res.jwt_user_name)
+      Cookies.set('tenantNameKey', res.jwt_user_tenant_name)
+      sessionStorage.setItem('userInfo',JSON.stringify(res))
+
       router.push('/home')
     }
-    return response.data;
+    return response;
   },
   error => {
     // 对响应错误做处理 

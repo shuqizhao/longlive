@@ -40,10 +40,16 @@ const dialogFormVisible = ref(false)
 const ruleFormRef = ref(null)
 
 const userInfo = JSON.parse(sessionStorage.getItem('userInfo'))
+let abbreviation=''
+let username=''
+if(userInfo){
+  abbreviation=userInfo.jwt_user_abbreviation;
+  username=userInfo.jwt_user_phone;
+}
 
 const dialogForm = reactive({
-  abbreviation: userInfo.jwt_user_abbreviation || '',
-  username: userInfo.jwt_user_phone || '',
+  abbreviation: abbreviation,
+  username: username,
   password: '',
   confirmPassword: ''
 })
