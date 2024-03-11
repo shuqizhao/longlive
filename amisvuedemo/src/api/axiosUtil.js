@@ -37,27 +37,20 @@ axiosInstance.interceptors.response.use(
     // 对响应数据做处理  
     if (response.status == '401') {
       router.push('/login')
-    } else if (response.status == "200" && response.config.url.indexOf('/auth/login') > 0) {
+    } else if (response.status == "200" && response.config.url.indexOf('/auth/login') != -1) {
       Cookies.set('access_token', response.data.access_token)
-      router.push('/')
+      router.push('/home')
     }
     return response;
   },
   error => {
+    // 对响应错误做处理 
     if(error.response.status&&error.response&&error.response.data){
       error.message = error.response.data.msg
     }
     if (error.response.status == '401') {
       router.push('/login')
     }
-    // if (error.response.status == '401' && error.response.config.url.indexOf('/auth/login') > 0) {
-    //   error.message = error.response.data.msg
-    // } else {
-    //   if (error.response.status == '401') {
-    //     router.push('/login')
-    //   }
-    // }
-    // 对响应错误做处理  
     return Promise.reject(error);
   }
 );

@@ -10,6 +10,7 @@ import "amis/sdk/iconfont.css";
 import "amis/sdk/helper.css";
 // import qs from "qs";
 import { getCurrentInstance } from 'vue';  
+import axiosInstance from "@/api/axiosUtil"
 
 function loadScript(src, callback) {
   const script = document.createElement("script");
@@ -142,6 +143,9 @@ export default {
       {
         // 覆盖 amis env
         // 参考 https://aisuda.bce.baidu.com/amis/zh-CN/docs/start/getting-started#sdk
+        fetcher: (url, method, data, config) => { 
+          return axiosInstance(url)
+        },
         jumpTo: (to, action) => {
           if (to === "goBack") {
             return router.go(-1);
