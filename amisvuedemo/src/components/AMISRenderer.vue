@@ -3,7 +3,7 @@
 <script>
 import "amis/sdk/sdk.js";
 import "amis/sdk/sdk.css";
-import "amis/sdk/iconfont.css";
+// import "amis/sdk/iconfont.css";
 
 // 可以不引用, 如果你不想要任何辅助类样式的话 (比如 `m-t-xs` 这种)
 // https://aisuda.bce.baidu.com/amis/zh-CN/style/index
@@ -40,7 +40,7 @@ function loadSDK() {
     loadStyles([
       "/amis/sdk/sdk.css",
       "/amis/sdk/helper.css",
-      "/amis/sdk/iconfont.css",
+      // "/amis/sdk/iconfont.css",
     ]);
     loadScript("/amis/sdk/sdk.js", (err) => {
       if (err) {
