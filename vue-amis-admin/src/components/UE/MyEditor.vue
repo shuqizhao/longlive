@@ -60,7 +60,7 @@ const editorConfig = {
       },
       customInsert(res, insertFn) {
         let path = res.datas[0].relativePath
-        let url = import.meta.env.VITE_UPLOAD_API + 'file.bdxetyy.com/group1/' + path
+        let url = import.meta.env.VITE_UPLOAD_API + 'file.xxx.com/group1/' + path
         insertFn(url)
       }
     },
@@ -76,7 +76,7 @@ const editorConfig = {
       },
       customInsert(res, insertFn) {
         let path = res.datas[0].relativePath
-        let url = import.meta.env.VITE_UPLOAD_API + 'file.bdxetyy.com/group1/' + path
+        let url = import.meta.env.VITE_UPLOAD_API + 'file.xxxx.com/group1/' + path
         upLoading.value = false
         insertFn(url)
       }

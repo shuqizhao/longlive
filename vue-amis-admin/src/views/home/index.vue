@@ -68,8 +68,6 @@
     <UserDialog ref="userDialogRef" title="登记用户" />
     <!-- 开套餐 -->
     <OpenSetMeal ref="openSetMealRef" />
-    <!-- 工具 -->
-    <CalculatorDialog ref="calculatorRef" />
   </div>
 </template>
 
@@ -78,9 +76,9 @@ import { Search } from '@element-plus/icons-vue'
 import { onMounted, reactive, ref } from 'vue'
 
 import * as echarts from 'echarts'
-import UserDialog from '@/components/UserDialog/userDialog.vue'
-import OpenSetMeal from '@/components/OpenSetMeal/openSetMeal.vue'
-import CalculatorDialog from './calculatorDialog.vue';
+// import UserDialog from '@/components/UserDialog/userDialog.vue'
+// import OpenSetMeal from '@/components/OpenSetMeal/openSetMeal.vue'
+// import CalculatorDialog from './calculatorDialog.vue';
 
 import WorkReminder from './workReminder.vue'
 import RecentlyUser from './recentlyUser.vue'
@@ -92,11 +90,11 @@ const openSetMealRef = ref(null)
 const calculatorRef = ref(null)
 
 const handleRegister = () => {
-  userDialogRef.value.dialogFormVisible = true
+  // userDialogRef.value.dialogFormVisible = true
 }
 
 const handleSetMeal = () => {
-  openSetMealRef.value.dialogFormVisible = true
+  // openSetMealRef.value.dialogFormVisible = true
 }
 
 const handleTool = () => {

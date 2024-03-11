@@ -40,7 +40,7 @@ watch(
 
 const handleAvatarSuccess = (response, uploadFile) => {
   let path = response.datas[0].relativePath
-  imageUrl.value = import.meta.env.VITE_UPLOAD_API + 'file.bdxetyy.com/group1/' + path
+  imageUrl.value = import.meta.env.VITE_UPLOAD_API + 'file.xxx.com/group1/' + path
   emit('update:modelValue', imageUrl.value)
 }
 

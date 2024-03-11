@@ -12,7 +12,7 @@ export function user_login(data) {
 // 登出
 export function user_logout(params) {
   return axiosInstance({
-    url: '/api/logout',
+    url: '/auth/logout',
     method: 'get',
     params
   })
