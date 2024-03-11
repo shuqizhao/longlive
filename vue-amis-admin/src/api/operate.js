@@ -1,8 +1,8 @@
-import axiosInstance from '../utils/axiosUtil'
+import request from '../utils/request'
 
 // 登录
 export function user_login(data) {
-  return axiosInstance({
+  return request({
     url: '/auth/login',
     method: 'post',
     data
@@ -11,7 +11,7 @@ export function user_login(data) {
 
 // 登出
 export function user_logout(params) {
-  return axiosInstance({
+  return request({
     url: '/auth/logout',
     method: 'get',
     params
