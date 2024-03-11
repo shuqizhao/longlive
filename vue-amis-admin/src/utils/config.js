@@ -1,7 +1,7 @@
-export const upAction = import.meta.env.VITE_UPLOAD_API + 'gateway.bdxetyy.com/bdxdoctor-object/file/upload'
-export const groupUrl = import.meta.env.VITE_UPLOAD_API + 'file.bdxetyy.com/group1/'
+export const upAction = import.meta.env.VITE_UPLOAD_API + ''
+export const groupUrl = import.meta.env.VITE_UPLOAD_API + ''
 
-export const domain = '/bdxdoctor-heightmanage-admin'
+export const domain = '/'
 
 export const sexTypes = [
   { label: '男', value: 0 },
