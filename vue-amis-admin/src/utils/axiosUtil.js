@@ -34,7 +34,6 @@ axiosInstance.interceptors.request.use(
 // 添加响应拦截器  
 axiosInstance.interceptors.response.use(
   response => {
-    debugger
     // 对响应数据做处理  
     if (response.status == '401') {
       router.push('/login')

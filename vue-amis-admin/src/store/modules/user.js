@@ -34,9 +34,8 @@ const actions = {
     return new Promise((resolve, reject) => {
       user_login(userInfo)
         .then((res) => {
-          debugger
           res.jwt_user_token = res.access_token;
-          res.jwt_user_role='一个好人';
+          res.jwt_user_name='一个好人';
           res.jwt_user_role='admin';
           res.jwt_user_tenant_name='一个好企业';
           if (res.jwt_user_token) {

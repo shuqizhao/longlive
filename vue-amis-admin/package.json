@@ -25,6 +25,7 @@
     "@vueup/vue-quill": "1.2.0",
     "@wangeditor/editor": "5.1.1",
     "@wangeditor/editor-for-vue": "5.1.12",
+    "amis": "^6.2.2",
     "axios": "0.21.1",
     "echarts": "^5.4.2",
     "element-plus": "2.2.5",

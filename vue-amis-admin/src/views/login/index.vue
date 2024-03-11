@@ -96,7 +96,6 @@ const submitForm = () => {
         .dispatch('user/login', param)
         .then((result) => {
           btnLoading.value = false
-          debugger;
           router.push('/')
         })
         .finally(() => {

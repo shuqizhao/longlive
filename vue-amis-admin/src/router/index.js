@@ -48,7 +48,7 @@ export const constantRoutes = [
       },
       {
         path: '/userManage',
-        component: () => import('@/views/userManage/index.vue'),
+        component: () => import('@/views/user/index.vue'),
         name: 'UserManage',
         meta: { title: '客户管理', icon: 'icon-zhuhu' }
       },
