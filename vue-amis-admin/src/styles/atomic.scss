@@ -1,0 +1,159 @@
+/*常用设置*/
+#app {
+  .w-full {
+    width: 100%;
+  }
+
+  .h-full {
+    height: 100%;
+  }
+  .col-w50{
+    width: 50%;
+  }
+  .col-w47{
+    width: 47%;
+  }
+  .col-w33{
+    width: 32%;
+  }
+
+  .pl-10{
+    padding-left: 10px;
+  }
+  .pl-15 {
+    padding-left: 15px;
+  }
+  .pl-20 {
+    padding-left: 20px;
+  }
+
+  .pr-10{
+    padding-right: 10px;
+  }
+  .pr-15 {
+    padding-right: 15px;
+  }
+  .pr-20{
+    padding-right: 20px;
+  }
+
+  .pt-10{
+    padding-top: 10px;
+  }
+  .pt-15 {
+    padding-top: 15px;
+  }
+  .pt-20{
+    padding-top: 20px;
+  }
+
+  .pb-10{
+    padding-bottom: 10px;
+  }
+  .pb-15 {
+    padding-bottom: 15px;
+  }
+  .pb-20{
+    padding-bottom: 20px;
+  }
+
+  .plr-10{
+    padding: 0 10px;
+  }
+  .plr-20{
+    padding: 0 20px;
+  }
+  .ptb-10{
+    padding: 10px 0;
+  }
+  .ptb-20{
+    padding: 20px 0;
+  }
+
+  .ml-10{
+    margin-left: 10px;
+  }
+  .ml-20{
+    margin-left: 20px;
+  }
+
+  .mr-10{
+    margin-right: 10px;
+  }
+  .mr-20{
+    margin-right: 20px;
+  }
+
+  .mt-10{
+    margin-top: 10px;
+  }
+  .mt-20 {
+    margin-top: 20px;
+  }
+
+  .mb-10{
+    margin-bottom: 10px;
+  }
+  .mb-20{
+    margin-bottom: 20px;
+  }
+  .mtb-20{
+    margin: 20px 0;
+  }
+
+  .color-orange{
+    color: orange;
+  }
+  .color-yellow{
+    color: yellow;
+  }
+  .color-warning{
+    color: #f17070;
+  }
+  .color-green{
+    color: #69C23F;
+  }
+  .color-blue{
+    color: #409eff;
+  }
+  .border-b{
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  .fw-blod{
+    font-weight: bold;
+  }
+  .dp-flex{
+    display: flex;
+  }
+
+  .flex-jus-between {
+    display: flex;
+    justify-content: space-between;
+    -webkit-justify-content: space-between;
+  }
+  .flex-jus-around{
+    display: flex;
+    justify-content: space-around;
+    -webkit-justify-content: space-around;
+  }
+  .flex-jus-center{
+    display: flex;
+    justify-content: center;
+    -webkit-justify-content: center;
+  }
+  .flex-align-center{
+    display: flex;
+    align-items: center;
+    -webkit-align-items: center;
+  }
+  .ta-left{
+    text-align: left;
+  }
+  .ta-right{
+    text-align: right;
+  }
+  .ta-center{
+    text-align: center;
+  }
+}
