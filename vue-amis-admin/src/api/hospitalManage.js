@@ -1,5 +1,5 @@
 import request from '../utils/request'
-const domain = '/bdxdoctor-healthkeeper-admin'
+const domain = '/'
 
 // [医院管理]->列表
 export function hospitalList(data, pages) {
