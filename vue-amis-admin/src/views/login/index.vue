@@ -3,17 +3,17 @@
     <div class="login-content">
       <div class="login-title">
         <p class="title-ch">刺客辅助管理系统</p>
-        <p class="title-en">Height management system</p>
+        <p class="title-en">Assassin management system</p>
       </div>
       <div class="login-form">
         <el-form ref="loginFormRef" class="form" :model="param" :rules="rules">
           <div class="form-title">
             <span class="welcome">欢迎！</span>
-            <span>登录星辰智慧有一个系统</span>
+            <span>登录系统</span>
           </div>
-          <!-- <el-form-item prop="abbreviation">
+          <el-form-item prop="abbreviation">
             <el-input v-model="param.abbreviation" placeholder="机构码"></el-input>
-          </el-form-item> -->
+          </el-form-item>
           <el-form-item prop="username">
             <el-input v-model="param.username" placeholder="登录手机"></el-input>
           </el-form-item>
