@@ -268,9 +268,9 @@ const querySearch = (queryString) => {
 }
 
 const loadAll = (queryString) => {
-  validSetMealList({ name: queryString }).then((res) => {
-    resSetMealData.value = res.datas
-  })
+  // validSetMealList({ name: queryString }).then((res) => {
+  //   resSetMealData.value = res.datas
+  // })
 }
 
 const queryClear = () => {

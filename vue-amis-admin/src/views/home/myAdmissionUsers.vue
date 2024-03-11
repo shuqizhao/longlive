@@ -30,10 +30,10 @@ const initData = () => {
     beginDate: selectData.value + '-01-01',
     endDate: selectData.value + '-12-31'
   }
-  myAdmissionCustomer(formData).then((res) => {
-    let resData = res.datas
-    initEchart(formatData(resData))
-  })
+  // myAdmissionCustomer(formData).then((res) => {
+  //   let resData = res.datas
+  //   initEchart(formatData(resData))
+  // })
 }
 
 const formatData = (list) => {

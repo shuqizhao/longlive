@@ -47,11 +47,11 @@ const handleLook = (rowData) => {
 }
 
 const fetchData = () => {
-  threeMonthsAdmission(pages).then((res) => {
-    tableData.value = res.datas
-    total.value = res.total
-    tableLoading.value = false
-  })
+  // threeMonthsAdmission(pages).then((res) => {
+  //   tableData.value = res.datas
+  //   total.value = res.total
+  //   tableLoading.value = false
+  // })
 }
 
 onMounted(() => {

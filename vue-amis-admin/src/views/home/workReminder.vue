@@ -66,11 +66,11 @@ const handleLook = (rowData) => {
 // 获取工作提醒
 const fetchData = () => {
   tableLoading.value = true
-  workReminder(toDay(), pages).then((res) => {
-    tableData.value = res.datas
-    total.value = res.total
-    tableLoading.value = false
-  })
+  // workReminder(toDay(), pages).then((res) => {
+  //   tableData.value = res.datas
+  //   total.value = res.total
+  //   tableLoading.value = false
+  // })
 }
 
 onMounted(() => {
