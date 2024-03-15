@@ -29,7 +29,6 @@ import { useStore } from 'vuex'
 import { constantRoutes } from '@/router'
 import { getRoles } from '@/utils/auth'
 import SidebarItem from './SidebarItem.vue'
-import logoSrc from '@img/logo.png'
 
 const roles = getRoles()
 const store = useStore()
