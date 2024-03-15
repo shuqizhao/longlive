@@ -1,6 +1,7 @@
 import axios from 'axios';
 import Cookies from 'js-cookie'
 import router from '@/router/index.js';
+import { ElMessage } from 'element-plus'
 
 const axiosInstance = axios.create({
   
@@ -38,13 +39,12 @@ axiosInstance.interceptors.response.use(
     if (response.status == '401') {
       router.push('/login')
     } else if (response.status == "200" && response.config.url.indexOf('/auth/login') != -1) {
-      // Cookies.set('access_token', response.data.access_token)
       var res={};
       res.jwt_user_token = response.data.access_token;
       res.jwt_user_name='一个好人';
       res.jwt_user_role='admin';
       res.jwt_user_tenant_name='一个好企业';
-      Cookies.set('token', res.jwt_user_toke)
+      Cookies.set('token', res.jwt_user_token)
       Cookies.set('roles', res.jwt_user_role)
       Cookies.set('name', res.jwt_user_name)
       Cookies.set('tenantNameKey', res.jwt_user_tenant_name)
@@ -55,12 +55,14 @@ axiosInstance.interceptors.response.use(
     return response;
   },
   error => {
-    // 对响应错误做处理 
-    if(error.response.status&&error.response&&error.response.data){
-      error.message = error.response.data.msg
-    }
     if (error.response.status == '401') {
+      Cookies.set('token', '')
+      ElMessage.error('权限已过期或被其他用户登录,请确认后重新登录！')
       router.push('/login')
+    }
+    // 对响应错误做处理 
+    if(error.response.status&&error.response&&error.response.data&&error.response.data.msg){
+      error.message = error.response.data.msg
     }
     return Promise.reject(error);
   }
