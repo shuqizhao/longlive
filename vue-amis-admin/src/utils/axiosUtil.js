@@ -14,7 +14,7 @@ axiosInstance.interceptors.request.use(
   config => {
     // 在这里可以添加请求头、身份验证等  
     if (config.url.indexOf('/auth/login') == -1) {
-      const token = Cookies.get('access_token')
+      const token = Cookies.get('token')
 
       if (!token) {
         // 如果用户未登录且试图访问非登录页面，重定向到登录页面  
@@ -38,7 +38,7 @@ axiosInstance.interceptors.response.use(
     if (response.status == '401') {
       router.push('/login')
     } else if (response.status == "200" && response.config.url.indexOf('/auth/login') != -1) {
-      Cookies.set('access_token', response.data.access_token)
+      // Cookies.set('access_token', response.data.access_token)
       var res={};
       res.jwt_user_token = response.data.access_token;
       res.jwt_user_name='一个好人';
