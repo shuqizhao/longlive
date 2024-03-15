@@ -104,7 +104,7 @@ export default {
                 type: 'warning'
             }).then(() => {
                 // 清除用户状态、跳转到登录页面等  
-                Cookies.set('access_token', '')
+                Cookies.set('token', '')
                 this.$router.push('/login');
             }).catch(() => {
                 // 取消操作  

@@ -44,7 +44,7 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  const token = Cookies.get('access_token')
+  const token = Cookies.get('token')
 
   if (to.name !== 'Login' && !token) {
     // 如果用户未登录且试图访问非登录页面，重定向到登录页面  

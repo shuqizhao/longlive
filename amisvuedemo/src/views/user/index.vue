@@ -56,7 +56,7 @@ export default {
                     "url": import.meta.env.VITE_BASE_Url + "/user/list",
                     headers: {
                         // 在这里添加 Authorization 头部  
-                        Authorization: `Bearer ${Cookies.get('access_token')}`
+                        Authorization: `Bearer ${Cookies.get('token')}`
                     },
                     requestAdaptor: function (api, context) {
                         axiosInstance(api);
